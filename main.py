@@ -24,7 +24,7 @@ async def text_without_photo_handler(client, message):
         # This line is for sending with user account.
         # await client.copy_message(channel, From_Channel, message.message_id)
 
-        # This lines are for sending with bot account.
+        # This line is for sending with bot account.
         TG.send_message(message=message.text, chat_id=str(channel), parse_mode='HTML') # This line is for sending with bot account.
 
 @app.on_message(filters.chat(From_Channel) & filters.photo)
@@ -33,7 +33,7 @@ async def text_with_photo_handler(client, message):
         # This line is for sending with user account.
         # await client.copy_message(channel, From_Channel, message.message_id)
 
-        # This lines are for sending with bot account.
+        # This line is for sending with bot account.
         photo_path = await message.download()
         TG.send_photo(photo_path=photo_path, caption=message.caption, chat_id=str(channel), parse_mode='HTML')
         os.remove(photo_path)
